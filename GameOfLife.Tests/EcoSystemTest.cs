@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace GameOfLife.Tests
+namespace manas.git.gol.tests
 {
     [TestClass]
-    public class UnitTest1
+    public class EcoSystemTest
     {
         [TestMethod]
         public void TestMethod1()

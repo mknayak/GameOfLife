@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>7a494e92-b96e-41bf-b5d9-c13eb6a1a120</ProjectGuid>
+    <ProjectGuid>{258B8B4F-726C-4FB4-A5E3-FB444EBF0120}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameOfLife.Tests</RootNamespace>
-    <AssemblyName>GameOfLife.Tests</AssemblyName>
+    <RootNamespace>manas.git.gol.tests</RootNamespace>
+    <AssemblyName>manas.git.gol.tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,8 +53,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="GameOfLifeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CellTest.cs" />
+    <Compile Include="EcoSystemTest.cs" />
+    <Compile Include="RuleEngineTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameOfLife\GameOfLife.csproj">
+      <Project>{ff6382a1-0ff9-4dcb-9d76-f59979eb711f}</Project>
+      <Name>GameOfLife</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
