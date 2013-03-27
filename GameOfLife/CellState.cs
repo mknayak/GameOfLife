@@ -7,16 +7,16 @@ namespace manas.git.gol
     public enum CellState
     {
         /// <summary>
-        /// The none
-        /// </summary>
-        None,
-        /// <summary>
         /// The alive
         /// </summary>
         Alive,
         /// <summary>
         /// The dead
         /// </summary>
-        Dead
+        Dead,
+        /// <summary>
+        /// None
+        /// </summary>
+        None
     }
 }

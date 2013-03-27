@@ -43,8 +43,9 @@
     <Compile Include="CellState.cs" />
     <Compile Include="EcoSystem.cs" />
     <Compile Include="GameOfLife.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="rule\RuleEngine.cs" />
+    <Compile Include="helpers\CellHelpers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
