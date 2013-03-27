@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using manas.git.gol;
-using manas.git.gol.rule;
+using manas.git.gol.helpers;
 using System.Collections.Generic;
 
 namespace manas.git.gol.tests
 {
     [TestClass]
-    public class RuleEngineTest
+    public class CellHelpersTest
     {
         [TestMethod]
         public void A_live_Cell_With_Less_Than_Two_Live_Cell_Dies_In_Next_Generation()
@@ -73,17 +73,13 @@ namespace manas.git.gol.tests
         /// <param name="currentCellState">State of the current cell.</param>
         /// <param name="liveNeighbourCount">The live neighbour count.</param>
         /// <returns></returns>
-        Cell GetCellWithNeighbours(CellState currentCellState, int liveNeighbourCount)
+        public static Cell GetCellWithNeighbours(CellState currentCellState, int liveNeighbourCount)
         {
             Cell nwCell = new Cell { State = currentCellState };
             List<Cell> neighbours = new List<Cell>();
             for (int i = 0; i < liveNeighbourCount; i++)
             {
                 neighbours.Add(new Cell { State = CellState.Alive });
-            }
-            for (int i = 0; i < 8-liveNeighbourCount; i++)
-            {
-                neighbours.Add(new Cell { State = CellState.Dead });
             }
             nwCell.Neighbours = neighbours;
             return nwCell;
