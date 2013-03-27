@@ -10,7 +10,7 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            var game = GameOfLife.Initialize(4, 7);
+            var game = GameOfLife.Initialize(6, 9);
             game.StartGame();
             Console.WriteLine("SEED");
             DrawGOL(game.System.cells);

@@ -9,14 +9,14 @@ namespace manas.git.gol
         /// <summary>
         /// The alive
         /// </summary>
-        Alive,
+        Alive=1,
         /// <summary>
         /// The dead
         /// </summary>
-        Dead,
+        Dead=2,
         /// <summary>
         /// None
         /// </summary>
-        None
+        None=0
     }
 }

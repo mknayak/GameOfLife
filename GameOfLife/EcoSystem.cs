@@ -1,4 +1,5 @@
 ﻿using manas.git.gol.helpers;
+using System;
 namespace manas.git.gol
 {
     /// <summary>
@@ -12,6 +13,8 @@ namespace manas.git.gol
         /// <param name="cellGrid">The cell grid.</param>
         public EcoSystem(Cell[,] cellGrid)
         {
+            if (cellGrid == null)
+                throw new ArgumentNullException("cellGrid");
             this.cells = cellGrid;
             this.Rows = cellGrid.GetLength(0);
             this.Columns = cellGrid.GetLength(1);

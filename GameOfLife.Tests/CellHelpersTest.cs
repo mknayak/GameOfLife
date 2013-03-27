@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using manas.git.gol;
 using manas.git.gol.helpers;
@@ -65,6 +66,28 @@ namespace manas.git.gol.tests
             currentCell.EvaluateNextGenerationState();
 
             Assert.AreEqual(currentCell.NextGenerationState, CellState.Alive);
+        }
+
+        [TestMethod]
+        public void CellGrid_Find_Neighbour_For_A_Cell()
+        {
+            EcoSystem system = new EcoSystem(EcoSystemTest.GetCellGrid(3, 3));
+
+            Cell cell = new Cell
+            {
+                position = new Position(1, 2)
+            };          
+            int expectedNeighbour = 5;
+            cell.SetNeighbours(system);
+            Assert.AreEqual(cell.Neighbours.Count(), expectedNeighbour);
+
+            cell = new Cell
+            {
+                position = new Position(1, 1)
+            };
+            expectedNeighbour = 8;
+            cell.SetNeighbours(system);
+            Assert.AreEqual(cell.Neighbours.Count(), expectedNeighbour);
         }
 
         /// <summary>

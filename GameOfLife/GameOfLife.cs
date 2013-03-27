@@ -27,6 +27,11 @@ namespace manas.git.gol
         /// <returns></returns>
         public static GameOfLife Initialize(int rows, int columns)
         {
+            if (rows <= 0)
+                throw new ArgumentException("rows should be more than zero");
+            if (columns <= 0)
+                throw new ArgumentException("columns should be more than zero");
+
             Cell[,] cells = new Cell[rows, columns];
             for (int i = 0; i < rows; i++)
             {
@@ -55,34 +60,32 @@ namespace manas.git.gol
         {
             Random rnd = new Random();
             List<int> aliveList = new List<int>();
-            aliveList.Add(0);
-            aliveList.Add(8);
-            // aliveList.Add(15);
-            aliveList.Add(21);
-            aliveList.Add(9);
-            aliveList.Add(16);
-            aliveList.Add(11);
-            aliveList.Add(18);
-            aliveList.Add(6);
-            //   aliveList.Add(12); 
-            aliveList.Add(19);
-            aliveList.Add(27);
+            aliveList.Add(rnd.Next(minBoundary,maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
+            aliveList.Add(rnd.Next(minBoundary, maxBoundary));
             StartGameWithSeed(aliveList);
         }
 
         /// <summary>
         /// Starts the game with seed.
         /// </summary>
-        /// <param name="aliveCells">The alive cells.</param>
-        public void StartGameWithSeed(IEnumerable<int> aliveCells)
+        /// <param name="aliveCellIndexes">The alive cells.</param>
+        public void StartGameWithSeed(IEnumerable<int> aliveCellIndexes)
         {
-            if (aliveCells.Any(c => c > this.maxBoundary || c < minBoundary))
-                throw new Exception(string.Format("Seed values must be between {0} and {1}", this.minBoundary, this.maxBoundary));
+            if (aliveCellIndexes.Any(c => c > this.maxBoundary || c < minBoundary))
+                throw new ArgumentException(string.Format("Seed values must be between {0} and {1}", this.minBoundary, this.maxBoundary));
             
-            foreach (var cellPosition in aliveCells)
+            foreach (var cellIndex in aliveCellIndexes)
             {
-                int x = cellPosition / this.System.cells.GetLength(1);
-                int y = cellPosition % this.System.cells.GetLength(1);
+                int x = cellIndex / this.System.cells.GetLength(1);
+                int y = cellIndex % this.System.cells.GetLength(1);
                 var selectedCell = this.System.cells[x, y];
                 selectedCell.State = CellState.Alive;
             }
