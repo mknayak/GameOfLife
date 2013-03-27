@@ -1,13 +1,14 @@
 ﻿using manas.git.gol;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ConsoleClient
 {
     class Program
     {
+        /// <summary>
+        /// Entry point for ConsoleClient.
+        /// </summary>
+        /// <param name="args">The args.</param>
         static void Main(string[] args)
         {
             var game = GameOfLife.Initialize(6, 9);
@@ -24,6 +25,10 @@ namespace ConsoleClient
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Draws the Game Of Life.
+        /// </summary>
+        /// <param name="cells">The cells.</param>
         private static void DrawGOL(Cell[,] cells)
         {
             for (int i = 0; i < cells.GetLength(0); i++)
@@ -36,6 +41,10 @@ namespace ConsoleClient
             }
         }
 
+        /// <summary>
+        /// Prints the cell.
+        /// </summary>
+        /// <param name="cell">The cell.</param>
         static void PrintCell(Cell cell)
         {
             if (cell.State.Equals(CellState.Alive))
